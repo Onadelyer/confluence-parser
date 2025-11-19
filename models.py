@@ -7,3 +7,6 @@ class QueryRequest(BaseModel):
 class QueryResponse(BaseModel):
     answer: str
     sources: List[str]
+
+class GenerateRequest(BaseModel):
+    message: str
