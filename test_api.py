@@ -12,16 +12,15 @@ def test_health():
     except Exception as e:
         print(f"Health check failed: {e}")
 
-def test_ingest():
-    print("Testing /ingest (Mocked)...")
-    # Note: This will fail if credentials are not set in .env
-    # We are just checking if the endpoint is reachable and handles auth error or success
+def test_generate():
+    print("Testing /generate...")
+    payload = {"message": "Hello from test"}
     try:
-        response = requests.post(f"{BASE_URL}/ingest")
-        print(f"Ingest status: {response.status_code}")
-        print(f"Ingest response: {response.json()}")
+        response = requests.post(f"{BASE_URL}/generate", json=payload)
+        print(f"Generate status: {response.status_code}")
+        print(f"Generate response: {response.json()}")
     except Exception as e:
-        print(f"Ingest test failed: {e}")
+        print(f"Generate test failed: {e}")
 
 def test_query():
     print("Testing /query...")
@@ -38,5 +37,5 @@ if __name__ == "__main__":
     print("Waiting for server to start...")
     time.sleep(5)
     test_health()
-    test_ingest()
+    test_generate()
     test_query()
