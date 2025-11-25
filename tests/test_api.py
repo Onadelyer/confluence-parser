@@ -24,7 +24,7 @@ def test_generate():
 
 def test_query():
     print("Testing /query...")
-    payload = {"question": "What is this documentation about?"}
+    payload = {"question": "Give me the recepie of the pie"}
     try:
         response = requests.post(f"{BASE_URL}/query", json=payload)
         print(f"Query status: {response.status_code}")
